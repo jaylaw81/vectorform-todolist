@@ -73,3 +73,18 @@ export function completeTodo(req, res) {
     });
   });
 }
+
+/**
+ * Delete a todo
+ * @param req
+ * @param res
+ * @returns void
+ */
+export function deleteTodo(req, res) {
+  Todo.findOne({ cuid: req.params.cuid }).remove().exec((err) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+    res.status(200).end();
+  });
+}

@@ -12,5 +12,6 @@ export default {
     welcomePageTitle: 'Добро пожаловать',
     welcomePageText: 'Это всего лишь простое приложение на MERN.',
     todoToggleStatus: 'Переключить статус',
+    todoDelete: 'Delete Todo'
   },
 };

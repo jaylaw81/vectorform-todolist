@@ -1,4 +1,4 @@
-import { ADD_TODO, ADD_TODOS, COMPLETE_TODO, CLEAR_COMPLETED_TODO } from './TodoActions';
+import { ADD_TODO, ADD_TODOS, COMPLETE_TODO, DELETE_TODO, CLEAR_COMPLETED_TODO } from './TodoActions';
 
 // Initial State
 const initialState = { data: [] };
@@ -19,6 +19,13 @@ const TodoReducer = (state = initialState, action) => {
       return {
         data: state.data.map(todo => {
           return todo.cuid === action.cuid ? Object.assign({}, todo, { completed: !todo.completed }) : todo;
+        }),
+      };
+    
+    case DELETE_TODO:
+      return {
+        data: state.data.map(todo => {
+          return todo.cuid === action.cuid ? Object.assign({}, todo, {data: [], deleted: true}) : todo;
         }),
       };
 

@@ -3,6 +3,10 @@
     color: grey;
 }
 
+.delete_true {
+  display: none;
+}
+
 .li_style {
   list-style-type: decimal-leading-zero;
   margin-top: 10px;

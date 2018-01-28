@@ -12,5 +12,6 @@ export default {
     welcomePageTitle: 'Welcome',
     welcomePageText: 'This todo list uses MERN.io',
     todoToggleStatus: 'Toggle status',
+    todoDelete: 'Delete Todo'
   },
 };

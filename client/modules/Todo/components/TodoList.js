@@ -7,13 +7,17 @@ function TodoList(props) {
   return (
     <ul>
       {
-        props.todos.map(todo => (
-          <TodoListItem
-            todo={todo}
-            key={todo.cuid}
-            onComplete={() => props.handleCompleteTodo(todo.cuid)}
-          />
-        ))
+        props.todos.map(todo => {
+          return (
+            <TodoListItem
+              todo={todo}
+              key={todo.cuid}
+              onComplete={() => props.handleCompleteTodo(todo.cuid)}
+              onDelete={() => props.handleDeleteTodo(todo.cuid)}
+            />
+          );
+        }
+      )
       }
     </ul>
   );
@@ -26,6 +30,7 @@ TodoList.propTypes = {
     cuid: PropTypes.string.isRequired,
   })).isRequired,
   handleCompleteTodo: PropTypes.func.isRequired,
+  handleDeleteTodo: PropTypes.func.isRequired,
 };
 
 export default TodoList;

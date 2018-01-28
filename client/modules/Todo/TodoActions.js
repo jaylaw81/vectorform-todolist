@@ -4,6 +4,7 @@ import callApi from '../../util/apiCaller';
 export const ADD_TODO = 'ADD_TODO';
 export const ADD_TODOS = 'ADD_TODOS';
 export const COMPLETE_TODO = 'COMPLETE_TODO';
+export const DELETE_TODO = 'DELETE_TODO';
 export const CLEAR_COMPLETED_TODO = 'CLEAR_COMPLETED_TODO';
 
 // Export Actions
@@ -17,6 +18,10 @@ export function addTodos(todos) {
 
 export function completeTodo(cuid) {
   return { type: COMPLETE_TODO, cuid };
+}
+
+export function deleteTodo(cuid) {
+  return { type: DELETE_TODO, cuid };
 }
 
 export function clearCompletedTodo() {
@@ -48,5 +53,11 @@ export function clearCompletedTodoRequest() {
 export function completeTodoRequest(cuid) {
   return (dispatch) => {
     return callApi(`todos/${cuid}/complete`, 'post').then(() => dispatch(completeTodo(cuid)));
+  };
+}
+
+export function deleteTodoRequest(cuid) {
+  return (dispatch) => {
+    return callApi(`todos/${cuid}/delete`, 'post').then(() => dispatch(deleteTodo(cuid)));
   };
 }

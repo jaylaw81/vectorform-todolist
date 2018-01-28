@@ -14,4 +14,7 @@ router.route('/todos/delete/completed').delete(TodoController.deleteCompletedTod
 // complete a todo by cuid
 router.route('/todos/:cuid/complete').post(TodoController.completeTodo);
 
+// complete a todo by cuid
+router.route('/todos/:cuid/delete').post(TodoController.deleteTodo);
+
 export default router;

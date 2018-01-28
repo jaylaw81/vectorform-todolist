@@ -6,7 +6,7 @@ import TodoList from '../components/TodoList';
 import TodoCreateWidget from '../components/TodoCreateWidget/TodoCreateWidget';
 
 // Import Actions
-import { addTodoRequest, fetchTodos, completeTodoRequest, clearCompletedTodoRequest } from '../TodoActions';
+import { addTodoRequest, fetchTodos, completeTodoRequest, deleteTodoRequest, clearCompletedTodoRequest } from '../TodoActions';
 
 // Import Selectors
 import { getTodos } from '../TodoReducer';
@@ -24,6 +24,10 @@ class TodoListPage extends Component {
     this.props.dispatch(completeTodoRequest(todo));
   };
 
+  handleDeleteTodo = todo => {
+    this.props.dispatch(deleteTodoRequest(todo));
+  };
+
   handleAddTodo = (text) => {
     this.props.dispatch(addTodoRequest({ text }));
   };
@@ -37,6 +41,7 @@ class TodoListPage extends Component {
         />
         <TodoList
           handleCompleteTodo={this.handleCompleteTodo}
+          handleDeleteTodo={this.handleDeleteTodo}
           todos={this.props.todos}
         />
       </div>
